@@ -12,17 +12,24 @@ package ejemplos02;
 public class Ejemplo041 {
 
     public static void main(String[] args) {
-        // 
-        obtenerMultiplicacion(primerValor, segundoValor); 
-        
+        int[][] arreglo1 = {{1, 2, 3}, {3, 2, 4}, {2, 6, 2}};
+        int[][] arreglo2 = {{1, 2, 3}, {2, 2, 2}, {3, 2, 1}};
+        int[][] arreglo3 = new int[3][3];
+        for (int i = 0; i < arreglo1.length; i++) {
+            for (int j = 0; j < arreglo1[i].length; j++) {
+                arreglo3[i][j] = obtenerMultiplicacion(arreglo1[i][j],
+                         arreglo2[i][j]);
+            }
+        }
+
+        // obtenerMultiplicacion(primerValor, segundoValor);
     }
-        
-    public static void obtenerSuma(int a, int b){
-        int suma;
-        suma = a + b;
-        System.out.printf("El valor de la suma es: %d\n", suma);
-        
+
+    public static int obtenerMultiplicacion(int a, int b) {
+        int operacion;
+        operacion = a * b;
+        return operacion;
+
     }
-    
-    
+
 }
