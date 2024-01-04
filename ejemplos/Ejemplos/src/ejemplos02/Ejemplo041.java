@@ -12,24 +12,49 @@ package ejemplos02;
 public class Ejemplo041 {
 
     public static void main(String[] args) {
-        int[][] arreglo1 = {{1, 2, 3}, {3, 2, 4}, {2, 6, 2}};
-        int[][] arreglo2 = {{1, 2, 3}, {2, 2, 2}, {3, 2, 1}};
-        int[][] arreglo3 = new int[3][3];
-        for (int i = 0; i < arreglo1.length; i++) {
-            for (int j = 0; j < arreglo1[i].length; j++) {
-                arreglo3[i][j] = obtenerMultiplicacion(arreglo1[i][j],
-                         arreglo2[i][j]);
+        // Declaración  de variables y arreglos
+        int[][] primeraMatriz = {{1, 2, 3}, {3, 2, 4}, {2, 6, 2}};
+        int[][] segundaMatriz = {{1, 2, 3}, {2, 2, 2}, {3, 1, 2}};
+        int[][] matrizResultado = new int[3][3];
+
+        int valorPrimero = 0;
+        int valorSegundo = 0;
+
+        // for para recorrer cada arreglo y asignar un valor a cada posision 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                valorPrimero = primeraMatriz[i][j];
+                valorSegundo = segundaMatriz[i][j];
+                matrizResultado[i][j] = multiplicarValores(valorPrimero, valorSegundo);
             }
         }
 
-        // obtenerMultiplicacion(primerValor, segundoValor);
+        // Presentación de los arreglos 
+        System.out.println("Primera");
+        presentarMatriz(primeraMatriz);
+
+        System.out.println("Segunda");
+        presentarMatriz(segundaMatriz);
+
+        System.out.println("RESULTADO");
+        presentarMatriz(matrizResultado);
     }
 
-    public static int obtenerMultiplicacion(int a, int b) {
-        int operacion;
-        operacion = a * b;
-        return operacion;
-
+// Función para multiplicar valores
+    public static int multiplicarValores(int a, int b) {
+        int resultadoM;
+        resultadoM = a * b;
+        return resultadoM;
     }
 
+// Función para presentar matrices
+    public static void presentarMatriz(int matriz[][]) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.printf(matriz[i][j] + "\t");
+            }
+            System.out.println("\n");
+        }
+        System.out.println("\n");
+    }
 }
